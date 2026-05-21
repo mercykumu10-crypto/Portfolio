@@ -1,749 +1,677 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mercy Okumu — Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mercy Okumu — MEAL Specialist & Programme Coordinator</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d2137;
+    --navy-mid: #163352;
+    --navy-light: #1e4470;
+    --green: #1a7a4a;
+    --green-light: #22a060;
+    --green-pale: #e8f5ee;
+    --gold: #c8913a;
+    --cream: #faf8f4;
+    --text: #1a1a2e;
+    --text-muted: #5a6478;
+    --white: #ffffff;
+    --border: #dde3ec;
+  }
 
-    :root {
-      --navy: #1B3A6B;
-      --navy-deep: #0f2347;
-      --green: #2E7D52;
-      --green-light: #e8f3ed;
-      --gold: #C9963A;
-      --white: #ffffff;
-      --off-white: #F8F9FB;
-      --text: #1a1a2e;
-      --muted: #5a6175;
-      --border: #dde3ed;
-    }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; }
 
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--off-white);
-      color: var(--text);
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.7;
+  }
 
-    /* ── HERO ── */
-    .hero {
-      background: var(--navy-deep);
-      position: relative;
-      overflow: hidden;
-      padding: 80px 40px 70px;
-      text-align: center;
-    }
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: var(--navy);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 56px;
+  }
+  .nav-name {
+    font-family: 'DM Serif Display', serif;
+    color: var(--white);
+    font-size: 1.1rem;
+    letter-spacing: 0.01em;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--white); }
 
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 60% 80% at 20% 50%, rgba(46,125,82,0.18) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 60% at 80% 30%, rgba(201,150,58,0.10) 0%, transparent 55%);
-      pointer-events: none;
-    }
+  /* HERO */
+  .hero {
+    background: var(--navy);
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 80px 0 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: 0; right: 0;
+    width: 45%; height: 100%;
+    background: linear-gradient(135deg, var(--navy-mid) 0%, var(--navy-light) 100%);
+    clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: -2px; left: 0; right: 0; height: 60px;
+    background: var(--cream);
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+  .hero-inner {
+    max-width: 1100px; margin: 0 auto; padding: 0 2rem;
+    position: relative; z-index: 1;
+    display: grid; grid-template-columns: 1fr 380px; gap: 4rem; align-items: center;
+  }
+  .hero-tag {
+    display: inline-block;
+    background: var(--green);
+    color: var(--white);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 2px;
+    margin-bottom: 1.2rem;
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .hero-sub {
+    color: rgba(255,255,255,0.75);
+    font-size: 1rem;
+    max-width: 480px;
+    margin-bottom: 2rem;
+    font-weight: 300;
+  }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-weight: 600; font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer; border: none;
+  }
+  .btn-primary { background: var(--green); color: var(--white); }
+  .btn-primary:hover { background: var(--green-light); }
+  .btn-outline { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,0.4); }
+  .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
 
-    .hero-tag {
-      display: inline-block;
-      background: rgba(46,125,82,0.25);
-      border: 1px solid rgba(46,125,82,0.5);
-      color: #7ed4a3;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      padding: 5px 16px;
-      border-radius: 20px;
-      margin-bottom: 22px;
-      opacity: 0;
-      animation: fadeUp 0.6s 0.1s ease forwards;
-    }
+  /* HERO STATS CARD */
+  .hero-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+  .hero-card-title {
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--text-muted);
+    margin-bottom: 1.2rem;
+  }
+  .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.2rem; }
+  .stat-item { text-align: center; padding: 0.8rem; background: var(--cream); border-radius: 8px; }
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem; color: var(--navy);
+    display: block; line-height: 1;
+  }
+  .stat-label { font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; }
+  .hero-card-divider { border: none; border-top: 1px solid var(--border); margin: 1rem 0; }
+  .status-dot {
+    display: inline-block; width: 8px; height: 8px;
+    border-radius: 50%; background: var(--green-light);
+    margin-right: 6px;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+  .availability {
+    font-size: 0.85rem; color: var(--text-muted);
+    display: flex; align-items: center;
+  }
+  .location-chip {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 0.82rem; color: var(--text-muted);
+    margin-top: 8px;
+  }
 
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.8rem, 7vw, 5rem);
-      font-weight: 900;
-      color: var(--white);
-      letter-spacing: -0.02em;
-      line-height: 1.05;
-      opacity: 0;
-      animation: fadeUp 0.7s 0.25s ease forwards;
-    }
+  /* SECTIONS */
+  section { padding: 80px 0; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+  .section-label {
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--green);
+    margin-bottom: 0.5rem;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    color: var(--navy); margin-bottom: 1rem; line-height: 1.2;
+  }
+  .section-intro {
+    color: var(--text-muted); max-width: 580px;
+    font-size: 1rem; line-height: 1.75;
+  }
 
-    .hero h1 span {
-      color: var(--gold);
-    }
+  /* ABOUT */
+  #about { background: var(--white); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; margin-top: 3rem; }
+  .about-text p { color: var(--text-muted); margin-bottom: 1rem; line-height: 1.8; }
+  .about-text p strong { color: var(--navy); font-weight: 600; }
+  .about-highlights { display: flex; flex-direction: column; gap: 1rem; }
+  .highlight-card {
+    border-left: 3px solid var(--green);
+    padding: 1rem 1.25rem;
+    background: var(--green-pale);
+    border-radius: 0 8px 8px 0;
+  }
+  .highlight-card strong { color: var(--navy); display: block; margin-bottom: 4px; font-size: 0.95rem; }
+  .highlight-card span { color: var(--text-muted); font-size: 0.9rem; }
 
-    .hero-sub {
-      margin-top: 14px;
-      font-size: 1.05rem;
-      color: rgba(255,255,255,0.65);
-      font-weight: 300;
-      letter-spacing: 0.04em;
-      opacity: 0;
-      animation: fadeUp 0.7s 0.4s ease forwards;
-    }
+  /* EXPERIENCE */
+  #experience { background: var(--cream); }
+  .timeline { margin-top: 3rem; position: relative; }
+  .timeline::before {
+    content: ''; position: absolute; left: 20px; top: 0; bottom: 0;
+    width: 2px; background: var(--border);
+  }
+  .timeline-item {
+    padding-left: 60px; margin-bottom: 2.5rem; position: relative;
+  }
+  .timeline-dot {
+    position: absolute; left: 12px; top: 4px;
+    width: 18px; height: 18px;
+    border-radius: 50%; background: var(--white);
+    border: 2.5px solid var(--green);
+    z-index: 1;
+  }
+  .timeline-dot.featured { background: var(--green); }
+  .exp-header {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.4rem;
+  }
+  .exp-title { font-weight: 600; color: var(--navy); font-size: 1rem; }
+  .exp-badge {
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em;
+    text-transform: uppercase; padding: 3px 10px;
+    border-radius: 2px; background: var(--navy); color: var(--white);
+  }
+  .exp-badge.donor { background: var(--green); }
+  .exp-org { font-weight: 500; color: var(--green); font-size: 0.92rem; }
+  .exp-meta { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.8rem; }
+  .exp-bullets { list-style: none; }
+  .exp-bullets li {
+    padding: 4px 0 4px 1.2rem;
+    position: relative; font-size: 0.92rem;
+    color: var(--text-muted); line-height: 1.65;
+  }
+  .exp-bullets li::before {
+    content: '▸'; position: absolute; left: 0;
+    color: var(--green); font-size: 0.8rem; top: 6px;
+  }
+  .exp-bullets li strong { color: var(--navy); }
 
-    .hero-contacts {
-      margin-top: 28px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px 24px;
-      opacity: 0;
-      animation: fadeUp 0.7s 0.55s ease forwards;
-    }
+  /* SKILLS */
+  #skills { background: var(--navy); }
+  #skills .section-title { color: var(--white); }
+  #skills .section-label { color: var(--gold); }
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+  .skill-group {
+    background: var(--navy-mid);
+    border-radius: 10px; padding: 1.5rem;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .skill-group-title {
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  .skill-tag {
+    display: inline-block; margin: 3px;
+    padding: 4px 10px; border-radius: 3px;
+    font-size: 0.8rem; font-weight: 500;
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.82);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .skill-tag.highlight {
+    background: var(--green);
+    border-color: var(--green);
+    color: var(--white);
+  }
 
-    .hero-contacts a {
-      color: rgba(255,255,255,0.75);
-      text-decoration: none;
-      font-size: 0.88rem;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      transition: color 0.2s;
-    }
-    .hero-contacts a:hover { color: var(--gold); }
+  /* CERTIFICATIONS */
+  #certifications { background: var(--white); }
+  .cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; margin-top: 2.5rem; }
+  .cert-item {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 0.9rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 8px; background: var(--cream);
+    font-size: 0.88rem; color: var(--text-muted);
+  }
+  .cert-icon {
+    width: 28px; height: 28px; flex-shrink: 0;
+    background: var(--green-pale);
+    border-radius: 6px; display: flex;
+    align-items: center; justify-content: center;
+    color: var(--green); font-weight: 700; font-size: 0.75rem;
+  }
 
-    .hero-contacts .dot {
-      width: 6px; height: 6px;
-      background: var(--green);
-      border-radius: 50%;
-      display: inline-block;
-    }
+  /* EDUCATION */
+  #education { background: var(--cream); }
+  .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem; }
+  .edu-card {
+    background: var(--white); border-radius: 10px;
+    padding: 1.5rem; border: 1px solid var(--border);
+  }
+  .edu-card.featured { border-color: var(--green); border-width: 2px; }
+  .edu-degree { font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+  .edu-org { color: var(--green); font-size: 0.9rem; font-weight: 500; }
+  .edu-year { font-size: 0.82rem; color: var(--text-muted); margin-top: 4px; }
+  .edu-badge {
+    display: inline-block; margin-top: 8px;
+    font-size: 0.72rem; padding: 2px 8px; border-radius: 2px;
+    background: var(--green-pale); color: var(--green);
+    font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
+  }
 
-    .hero-divider {
-      width: 60px; height: 3px;
-      background: linear-gradient(90deg, var(--green), var(--gold));
-      border-radius: 2px;
-      margin: 32px auto 0;
-      opacity: 0;
-      animation: fadeUp 0.7s 0.65s ease forwards;
-    }
+  /* CONTACT */
+  #contact { background: var(--navy); }
+  #contact .section-title { color: var(--white); }
+  #contact .section-label { color: var(--gold); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 3rem; align-items: start; }
+  .contact-text { color: rgba(255,255,255,0.7); line-height: 1.8; font-size: 0.95rem; }
+  .contact-links { display: flex; flex-direction: column; gap: 1rem; }
+  .contact-link {
+    display: flex; align-items: center; gap: 12px;
+    color: var(--white); text-decoration: none;
+    padding: 0.9rem 1.2rem;
+    background: var(--navy-mid);
+    border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);
+    transition: all 0.2s; font-size: 0.92rem;
+  }
+  .contact-link:hover { background: var(--navy-light); border-color: rgba(255,255,255,0.25); }
+  .contact-link-icon {
+    width: 36px; height: 36px;
+    background: var(--green);
+    border-radius: 6px; display: flex;
+    align-items: center; justify-content: center;
+    font-size: 1rem; flex-shrink: 0;
+  }
+  .contact-link-text small { display: block; color: rgba(255,255,255,0.5); font-size: 0.75rem; }
 
-    /* ── LAYOUT ── */
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 0 28px;
-    }
+  /* FOOTER */
+  footer {
+    background: #07131f;
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.82rem;
+  }
+  footer a { color: var(--gold); text-decoration: none; }
 
-    /* ── NAV PILLS ── */
-    .nav-pills {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(248,249,251,0.95);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--border);
-      padding: 12px 0;
-    }
+  /* FADE IN */
+  .fade-in {
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-    .nav-pills-inner {
-      display: flex;
-      gap: 6px;
-      justify-content: center;
-      flex-wrap: wrap;
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    .nav-pills a {
-      text-decoration: none;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--muted);
-      padding: 6px 16px;
-      border-radius: 20px;
-      border: 1px solid transparent;
-      transition: all 0.2s;
-    }
-
-    .nav-pills a:hover {
-      color: var(--navy);
-      border-color: var(--navy);
-      background: rgba(27,58,107,0.05);
-    }
-
-    /* ── SECTIONS ── */
-    section {
-      padding: 60px 0 20px;
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    section.visible { opacity: 1; transform: translateY(0); }
-
-    .section-label {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 32px;
-    }
-
-    .section-label h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.65rem;
-      font-weight: 700;
-      color: var(--navy);
-    }
-
-    .section-label::after {
-      content: '';
-      flex: 1;
-      height: 2px;
-      background: linear-gradient(90deg, var(--green) 0%, transparent 100%);
-      border-radius: 2px;
-    }
-
-    /* ── SUMMARY CARD ── */
-    .summary-card {
-      background: var(--white);
-      border-left: 4px solid var(--green);
-      border-radius: 0 12px 12px 0;
-      padding: 28px 32px;
-      font-size: 1rem;
-      color: var(--text);
-      line-height: 1.8;
-      box-shadow: 0 2px 16px rgba(27,58,107,0.06);
-    }
-
-    /* ── STATS STRIP ── */
-    .stats-strip {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin: 40px 0 0;
-    }
-
-    .stat-card {
-      background: var(--white);
-      border-radius: 12px;
-      padding: 22px 16px;
-      text-align: center;
-      box-shadow: 0 2px 12px rgba(27,58,107,0.07);
-      border-top: 3px solid var(--navy);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .stat-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(27,58,107,0.12); }
-
-    .stat-card .num {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
-      font-weight: 900;
-      color: var(--navy);
-      line-height: 1;
-    }
-
-    .stat-card .label {
-      font-size: 0.75rem;
-      color: var(--muted);
-      margin-top: 6px;
-      line-height: 1.4;
-    }
-
-    /* ── SKILLS ── */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    .skill-group {
-      background: var(--white);
-      border-radius: 12px;
-      padding: 22px 20px;
-      box-shadow: 0 2px 12px rgba(27,58,107,0.06);
-    }
-
-    .skill-group h3 {
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--green);
-      margin-bottom: 12px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .skill-tag {
-      background: var(--green-light);
-      color: var(--green);
-      font-size: 0.78rem;
-      font-weight: 500;
-      padding: 4px 10px;
-      border-radius: 12px;
-    }
-
-    /* ── EXPERIENCE ── */
-    .exp-list { display: flex; flex-direction: column; gap: 24px; }
-
-    .exp-card {
-      background: var(--white);
-      border-radius: 12px;
-      padding: 28px 28px 24px;
-      box-shadow: 0 2px 12px rgba(27,58,107,0.06);
-      position: relative;
-      border-left: 4px solid var(--navy);
-      transition: box-shadow 0.2s;
-    }
-
-    .exp-card:hover { box-shadow: 0 6px 24px rgba(27,58,107,0.11); }
-
-    .exp-card.volunteer { border-left-color: var(--green); }
-
-    .exp-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 4px;
-    }
-
-    .exp-title {
-      font-weight: 700;
-      font-size: 1rem;
-      color: var(--navy);
-    }
-
-    .exp-dates {
-      font-size: 0.8rem;
-      color: var(--muted);
-      background: var(--off-white);
-      padding: 3px 10px;
-      border-radius: 10px;
-      white-space: nowrap;
-    }
-
-    .exp-org {
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: var(--green);
-      margin-bottom: 14px;
-    }
-
-    .exp-bullets { list-style: none; padding: 0; }
-
-    .exp-bullets li {
-      font-size: 0.91rem;
-      color: #3a3f52;
-      padding: 4px 0 4px 18px;
-      position: relative;
-      line-height: 1.6;
-    }
-
-    .exp-bullets li::before {
-      content: '▸';
-      position: absolute;
-      left: 0;
-      color: var(--green);
-      font-size: 0.8rem;
-      top: 5px;
-    }
-
-    .vol-badge {
-      display: inline-block;
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      background: rgba(46,125,82,0.12);
-      color: var(--green);
-      padding: 2px 8px;
-      border-radius: 8px;
-      margin-left: 8px;
-      vertical-align: middle;
-    }
-
-    /* ── PROJECTS ── */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-
-    .project-card {
-      background: var(--white);
-      border-radius: 14px;
-      padding: 26px 24px;
-      box-shadow: 0 2px 12px rgba(27,58,107,0.06);
-      border-top: 3px solid var(--gold);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .project-card:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(27,58,107,0.12); }
-
-    .project-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 10px;
-    }
-
-    .project-card p {
-      font-size: 0.88rem;
-      color: var(--muted);
-      line-height: 1.65;
-    }
-
-    .project-icon {
-      font-size: 1.6rem;
-      margin-bottom: 12px;
-    }
-
-    /* ── EDUCATION & CERTS ── */
-    .edu-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-
-    .edu-card {
-      background: var(--white);
-      border-radius: 12px;
-      padding: 22px 22px;
-      box-shadow: 0 2px 12px rgba(27,58,107,0.06);
-    }
-
-    .edu-card h3 {
-      font-weight: 700;
-      font-size: 0.95rem;
-      color: var(--navy);
-      margin-bottom: 4px;
-    }
-
-    .edu-card .inst {
-      font-size: 0.82rem;
-      color: var(--green);
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .edu-card .note {
-      font-size: 0.78rem;
-      color: var(--muted);
-    }
-
-    .cert-list { list-style: none; }
-    .cert-list li {
-      font-size: 0.84rem;
-      color: #3a3f52;
-      padding: 6px 0 6px 20px;
-      position: relative;
-      border-bottom: 1px solid var(--border);
-    }
-    .cert-list li:last-child { border-bottom: none; }
-    .cert-list li::before {
-      content: '✓';
-      position: absolute;
-      left: 0;
-      color: var(--green);
-      font-weight: 700;
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--navy-deep);
-      color: rgba(255,255,255,0.6);
-      text-align: center;
-      padding: 36px 20px;
-      margin-top: 60px;
-      font-size: 0.84rem;
-    }
-
-    footer a { color: var(--gold); text-decoration: none; }
-
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(18px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 700px) {
-      .stats-strip { grid-template-columns: repeat(2,1fr); }
-      .skills-grid { grid-template-columns: 1fr; }
-      .projects-grid { grid-template-columns: 1fr; }
-      .edu-grid { grid-template-columns: 1fr; }
-      .hero { padding: 60px 20px 50px; }
-    }
-  </style>
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-card { display: none; }
+    .about-grid, .contact-grid, .edu-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .hero::before { display: none; }
+  }
+</style>
 </head>
 <body>
 
-<!-- HERO -->
-<header class="hero">
-  <div class="hero-tag">Professional Portfolio</div>
-  <h1>Mercy <span>Okumu</span></h1>
-  <p class="hero-sub">Programme Coordinator &nbsp;·&nbsp; Field Operations &nbsp;·&nbsp; M&E & Data</p>
-  <div class="hero-contacts">
-    <a href="mailto:mercykumu10@gmail.com"><span class="dot"></span> mercykumu10@gmail.com</a>
-    <a href="tel:+254719161672"><span class="dot"></span> 0719 161 672</a>
-    <a href="https://linkedin.com/in/mercy-okumu-782bb937" target="_blank"><span class="dot"></span> LinkedIn Profile</a>
-    <a href="#"><span class="dot"></span> Nairobi, Kenya</a>
-  </div>
-  <div class="hero-divider"></div>
-</header>
-
 <!-- NAV -->
-<nav class="nav-pills">
-  <div class="nav-pills-inner">
-    <a href="#summary">Summary</a>
-    <a href="#skills">Skills</a>
-    <a href="#experience">Experience</a>
-    <a href="#projects">Projects</a>
-    <a href="#education">Education</a>
-  </div>
+<nav>
+  <span class="nav-name">Mercy Okumu</span>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 </nav>
 
-<div class="container">
-
-  <!-- SUMMARY -->
-  <section id="summary">
-    <div class="section-label"><h2>Profile Summary</h2></div>
-    <div class="summary-card">
-      Programme Data Associate and Social Worker with over a decade of experience in NGOs, programme administration, and community empowerment. Skilled at blending people-centred care with data-driven decision-making to deliver measurable impact. Currently advancing in data science and digital solutions, with projects addressing education access, water challenges, and youth empowerment. Recognised as a collaborative leader, report writer, and advocate passionate about social transformation.
-    </div>
-
-    <div class="stats-strip">
-      <div class="stat-card">
-        <div class="num">10+</div>
-        <div class="label">Years NGO Experience</div>
-      </div>
-      <div class="stat-card">
-        <div class="num">200+</div>
-        <div class="label">Children & Families Supported</div>
-      </div>
-      <div class="stat-card">
-        <div class="num">50+</div>
-        <div class="label">Teen Mothers Mentored<br>(95% completion)</div>
-      </div>
-      <div class="stat-card">
-        <div class="num">100</div>
-        <div class="label">Youth Reached in USAID Artisan Programme</div>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <span class="hero-tag">Open to Opportunities · Nairobi</span>
+      <h1>Mercy Okumu<br><em>MEAL Specialist</em><br>&amp; Programme Coordinator</h1>
+      <p class="hero-sub">10+ years of NGO experience in Kenya — turning field realities into evidence that protects children, empowers communities, and satisfies donors.</p>
+      <div class="hero-actions">
+        <a href="mailto:mercykumu10@gmail.com" class="btn btn-primary">✉ Get In Touch</a>
+        <a href="https://www.linkedin.com/in/mercyokumu-ke" target="_blank" class="btn btn-outline">LinkedIn Profile</a>
       </div>
     </div>
-  </section>
+    <div class="hero-card">
+      <p class="hero-card-title">Impact at a glance</p>
+      <div class="stat-grid">
+        <div class="stat-item">
+          <span class="stat-num">10+</span>
+          <span class="stat-label">Years NGO Experience</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">200+</span>
+          <span class="stat-label">Children & Families Supported</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">95%</span>
+          <span class="stat-label">Programme Completion Rate</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">99+</span>
+          <span class="stat-label">Monitoring Visits Conducted</span>
+        </div>
+      </div>
+      <hr class="hero-card-divider">
+      <div class="availability"><span class="status-dot"></span> Available for immediate start</div>
+      <div class="location-chip">📍 Nairobi, Kenya &nbsp;·&nbsp; Open to hybrid &amp; field roles</div>
+    </div>
+  </div>
+</section>
 
-  <!-- SKILLS -->
-  <section id="skills">
-    <div class="section-label"><h2>Key Skills</h2></div>
-    <div class="skills-grid">
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <p class="section-label">About Me</p>
+    <h2 class="section-title">Where rigorous data meets<br>deep community trust</h2>
+    <div class="about-grid fade-in">
+      <div class="about-text">
+        <p>I am a <strong>MEAL Specialist and Programme Coordinator</strong> with over 10 years of NGO experience in Kenya, specialising in child protection, donor compliance, and community-centred programme delivery. I have worked with USAID/PEPFAR-funded programmes and bring a track record of turning field realities into clean evidence.</p>
+        <p>At <strong>Rehema Foundation</strong>, I managed beneficiary databases for 200+ children and families, produced donor reports with <strong>zero audit findings</strong> across my entire tenure, and co-designed a psychosocial support curriculum achieving a 95% completion rate among teen mothers. At <strong>Watoto wa Lwanga</strong>, I coordinated a USAID/PEPFAR project that saw 100% youth completion in an artisan skills programme.</p>
+        <p>I am currently deepening my technical skills in <strong>Data Science through ALX Africa</strong> (SQL and Power BI) — because I believe strong MEAL is where good fieldwork meets rigorous data.</p>
+      </div>
+      <div class="about-highlights">
+        <div class="highlight-card">
+          <strong>USAID / PEPFAR Experience</strong>
+          <span>Coordinated donor-compliant programmes with zero audit findings across 10 years</span>
+        </div>
+        <div class="highlight-card">
+          <strong>MEAL Systems Design</strong>
+          <span>Built tracking frameworks in Excel & Power BI enabling real-time indicator monitoring</span>
+        </div>
+        <div class="highlight-card">
+          <strong>Child Protection & Case Management</strong>
+          <span>Conducted 99+ structured home & school monitoring visits across Nairobi communities</span>
+        </div>
+        <div class="highlight-card">
+          <strong>Upskilling in Data Science</strong>
+          <span>Currently completing SQL, Power BI & Machine Learning training at ALX Africa</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <p class="section-label">Professional Experience</p>
+    <h2 class="section-title">A decade of impact across<br>Kenya's NGO sector</h2>
+    <div class="timeline fade-in">
+
+      <div class="timeline-item">
+        <div class="timeline-dot featured"></div>
+        <div class="exp-header">
+          <div>
+            <div class="exp-title">Programme Coordinator / MEAL & Data Associate</div>
+            <div class="exp-org">Rehema Foundation</div>
+          </div>
+          <span class="exp-badge donor">USAID / PEPFAR</span>
+        </div>
+        <div class="exp-meta">April 2015 – September 2025 &nbsp;·&nbsp; Nairobi, Kenya &nbsp;·&nbsp; 10 years</div>
+        <ul class="exp-bullets">
+          <li>Coordinated USAID/PEPFAR-funded child protection and psychosocial support programmes across multiple sites, managing timelines, field staff, and multi-partner deliverables in full donor compliance.</li>
+          <li>Managed beneficiary databases covering <strong>200+ children and families</strong> — maintaining data accuracy, confidentiality, and GDPR-aligned data protection practices.</li>
+          <li>Produced bi-weekly and monthly narrative and financial donor reports, achieving <strong>zero audit findings</strong> across entire tenure.</li>
+          <li>Built and maintained MEAL tracking systems in Excel and Power BI enabling real-time indicator monitoring and evidence-based programme adaptation.</li>
+          <li>Conducted <strong>99+ structured home and school monitoring visits</strong> to assess beneficiary wellbeing, document progress, and flag child protection concerns.</li>
+          <li>Co-designed a life skills and psychosocial support curriculum for teen mothers, achieving a <strong>95% programme completion rate</strong> across 80+ participants.</li>
+          <li>Coordinated fundraising events and stakeholder forums that <strong>increased donor engagement by 40%</strong>.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot featured"></div>
+        <div class="exp-header">
+          <div>
+            <div class="exp-title">Senior Social Worker / Project Coordinator</div>
+            <div class="exp-org">Watoto wa Lwanga Organization</div>
+          </div>
+          <span class="exp-badge donor">USAID / PEPFAR</span>
+        </div>
+        <div class="exp-meta">January 2012 – April 2014 &nbsp;·&nbsp; Nairobi, Kenya</div>
+        <ul class="exp-bullets">
+          <li>Coordinated implementation of a USAID/PEPFAR-funded community youth development project — managing milestones, timelines, and full donor compliance reporting from inception to close.</li>
+          <li>Facilitated youth apprenticeship and artisan skills programme achieving a <strong>100% completion rate</strong> across all enrolled participants.</li>
+          <li>Trained <strong>200+ community members</strong> in life skills, child rights awareness, and basic literacy — recording outcomes and producing materials for donor reporting.</li>
+          <li>Maintained detailed case histories, grant activity records, and programme documentation supporting accountability to international donors.</li>
+          <li>Supported budget documentation and built strong relationships with government, community, and NGO stakeholders to ensure programme sustainability.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="exp-header">
+          <div>
+            <div class="exp-title">Community & Administrative Support Officer</div>
+            <div class="exp-org">Marie Stopes Kenya</div>
+          </div>
+          <span class="exp-badge">Health</span>
+        </div>
+        <div class="exp-meta">February 2014 – December 2014 &nbsp;·&nbsp; Nairobi, Kenya</div>
+        <ul class="exp-bullets">
+          <li>Supported women's health screening mobilisation campaigns across Nairobi communities, driving client registration and service uptake.</li>
+          <li>Managed programme data entry and monitoring reports to support service delivery analysis and organisational learning.</li>
+          <li>Coordinated service delivery logistics and client registration workflows across multiple clinic sites.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="exp-title" style="margin-bottom:6px">Volunteer Roles</div>
+        <ul class="exp-bullets">
+          <li><strong>Child Welfare Society of Kenya (2013)</strong> — Case management, child protection assessments, and structured case documentation.</li>
+          <li><strong>Comboni Missionary Sisters (2011)</strong> — Community mobilisation, outreach support, and programme database management.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <p class="section-label">Core Competencies</p>
+    <h2 class="section-title">Skills &amp; Tools</h2>
+    <div class="skills-grid fade-in">
       <div class="skill-group">
-        <h3>Data & Technology</h3>
-        <div class="skill-tags">
-          <span class="skill-tag">SQL</span>
-          <span class="skill-tag">Power BI</span>
-          <span class="skill-tag">Excel (Advanced)</span>
-          <span class="skill-tag">Data Analysis</span>
-          <span class="skill-tag">Report Writing</span>
-          <span class="skill-tag">M&E</span>
-          <span class="skill-tag">Google Workspace</span>
-        </div>
+        <div class="skill-group-title">MEAL &amp; Reporting</div>
+        <span class="skill-tag highlight">MEAL Framework Design</span>
+        <span class="skill-tag highlight">Donor Reporting</span>
+        <span class="skill-tag">Indicator Tracking</span>
+        <span class="skill-tag">Narrative Reporting</span>
+        <span class="skill-tag">Financial Reporting</span>
+        <span class="skill-tag">Theory of Change</span>
       </div>
       <div class="skill-group">
-        <h3>Social Impact</h3>
-        <div class="skill-tags">
-          <span class="skill-tag">Child Protection</span>
-          <span class="skill-tag">Case Management</span>
-          <span class="skill-tag">GBV Prevention</span>
-          <span class="skill-tag">Counselling</span>
-          <span class="skill-tag">Community Outreach</span>
-          <span class="skill-tag">Programme Admin</span>
-        </div>
+        <div class="skill-group-title">Data &amp; Digital Tools</div>
+        <span class="skill-tag highlight">Power BI</span>
+        <span class="skill-tag highlight">SQL</span>
+        <span class="skill-tag">Microsoft Excel</span>
+        <span class="skill-tag">Google Forms</span>
+        <span class="skill-tag">KoBoToolbox</span>
+        <span class="skill-tag">JotForm</span>
+        <span class="skill-tag">Database Management</span>
       </div>
       <div class="skill-group">
-        <h3>Leadership & Communication</h3>
-        <div class="skill-tags">
-          <span class="skill-tag">Team Coordination</span>
-          <span class="skill-tag">Proposal Writing</span>
-          <span class="skill-tag">Fundraising</span>
-          <span class="skill-tag">Advocacy</span>
-          <span class="skill-tag">Donor Reporting</span>
-          <span class="skill-tag">Public Speaking</span>
-        </div>
+        <div class="skill-group-title">Programme Management</div>
+        <span class="skill-tag highlight">Project Coordination</span>
+        <span class="skill-tag">Grant Administration</span>
+        <span class="skill-tag">Budget Tracking</span>
+        <span class="skill-tag">Stakeholder Engagement</span>
+        <span class="skill-tag">Multi-partner Delivery</span>
+        <span class="skill-tag">Donor Compliance</span>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Social Work &amp; Protection</div>
+        <span class="skill-tag highlight">Child Protection</span>
+        <span class="skill-tag highlight">Case Management</span>
+        <span class="skill-tag">GBV Response</span>
+        <span class="skill-tag">Psychosocial Support</span>
+        <span class="skill-tag">Life Skills Facilitation</span>
+        <span class="skill-tag">Community Mobilisation</span>
+        <span class="skill-tag">Safeguarding</span>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- EXPERIENCE -->
-  <section id="experience">
-    <div class="section-label"><h2>Professional Experience</h2></div>
-    <div class="exp-list">
-
-      <div class="exp-card">
-        <div class="exp-header">
-          <div class="exp-title">Administrator | Social Worker | Programme Data Associate</div>
-          <div class="exp-dates">Apr 2015 – Sep 2025</div>
-        </div>
-        <div class="exp-org">Rehema Foundation — Nairobi, Kenya</div>
-        <ul class="exp-bullets">
-          <li>Coordinated literacy, livelihood, counselling, and outreach programmes across Royal Court, Karen, and Matasia homes.</li>
-          <li>Managed beneficiary databases, case files, and structured programme data to USAID/PEPFAR compliance standards.</li>
-          <li>Compiled bi-weekly and monthly narrative and financial donor reports synthesising field-level findings.</li>
-          <li>Supported M&E tracking and indicator reporting using Excel and Power BI; conducted 99+ home and school monitoring visits.</li>
-          <li>Supported teen mothers through a two-year transformation programme integrating life skills, vocational training, and counselling (95% completion rate).</li>
-          <li>Coordinated trainings, stakeholder meetings, and fundraising events including youth-led spoken word advocacy performances.</li>
-        </ul>
-      </div>
-
-      <div class="exp-card">
-        <div class="exp-header">
-          <div class="exp-title">Senior Social Worker | Project Coordinator</div>
-          <div class="exp-dates">Jan 2012 – Apr 2014</div>
-        </div>
-        <div class="exp-org">Watoto wa Lwanga Organization — Nairobi, Kenya</div>
-        <ul class="exp-bullets">
-          <li>Coordinated USAID/PEPFAR-funded project implementation, managing milestones and donor compliance reporting.</li>
-          <li>Delivered psychosocial support, case management, and child protection services for vulnerable children and families.</li>
-          <li>Facilitated community forums and youth apprenticeship programmes — 100 youth reached with 100% completion rate.</li>
-          <li>Supported budget documentation, stakeholder collaboration, and field-level activity tracking.</li>
-        </ul>
-      </div>
-
-      <div class="exp-card">
-        <div class="exp-header">
-          <div class="exp-title">Community & Administrative Support</div>
-          <div class="exp-dates">Feb 2013 – Dec 2013</div>
-        </div>
-        <div class="exp-org">Marie Stopes Kenya — Nairobi, Kenya</div>
-        <ul class="exp-bullets">
-          <li>Supported community mobilisation for women's health screening initiatives and client registration.</li>
-          <li>Managed programme data entry and prepared monitoring reports for service delivery coordination.</li>
-        </ul>
-      </div>
-
-      <div class="exp-card volunteer">
-        <div class="exp-header">
-          <div class="exp-title">Case Management & Reporting Support <span class="vol-badge">Volunteer</span></div>
-          <div class="exp-dates">2013</div>
-        </div>
-        <div class="exp-org">Child Welfare Society of Kenya — Nairobi, Kenya</div>
-        <ul class="exp-bullets">
-          <li>Assisted with case management documentation and structured reporting for child welfare programmes.</li>
-          <li>Supported field social workers in maintaining accurate case records and beneficiary follow-up.</li>
-        </ul>
-      </div>
-
-      <div class="exp-card volunteer">
-        <div class="exp-header">
-          <div class="exp-title">Programme Coordination & Database Support <span class="vol-badge">Volunteer</span></div>
-          <div class="exp-dates">2008</div>
-        </div>
-        <div class="exp-org">Comboni Missionary Sisters — Nairobi, Kenya</div>
-        <ul class="exp-bullets">
-          <li>Supported programme coordination and database management for community outreach activities.</li>
-          <li>Assisted in organising community events and maintaining participant records.</li>
-        </ul>
-      </div>
-
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="container">
+    <p class="section-label">Certifications &amp; Training</p>
+    <h2 class="section-title">Professional Development</h2>
+    <p class="section-intro">Continuous learning across child protection, MEAL, data science, and organisational management.</p>
+    <div class="cert-grid fade-in">
+      <div class="cert-item"><div class="cert-icon">ALX</div>Data Analytics — SQL, Power BI &amp; Research (ALX Africa)</div>
+      <div class="cert-item"><div class="cert-icon">AV</div>Child Risk Assessment — AVSI International</div>
+      <div class="cert-item"><div class="cert-icon">AV</div>Evaluation in the Helping Process — AVSI International</div>
+      <div class="cert-item"><div class="cert-icon">AN</div>Child Rights &amp; Responsibilities — ANPPCAN Kenya</div>
+      <div class="cert-item"><div class="cert-icon">AN</div>Child Abuse, GBV &amp; Sexual Exploitation — ANPPCAN Kenya</div>
+      <div class="cert-item"><div class="cert-icon">AN</div>Developing a Child Protection Policy — ANPPCAN Kenya</div>
+      <div class="cert-item"><div class="cert-icon">AN</div>Family Counselling — ANPPCAN Kenya</div>
+      <div class="cert-item"><div class="cert-icon">AN</div>Nutrition Support in HIV Programmes — ANPPCAN Kenya</div>
+      <div class="cert-item"><div class="cert-icon">AN</div>Peer Education: Drug &amp; Substance Abuse — ANPPCAN Kenya</div>
+      <div class="cert-item"><div class="cert-icon">IP</div>Accountability to Donors — IPM</div>
+      <div class="cert-item"><div class="cert-icon">US</div>Resource Mobilisation — USAID-linked Programme</div>
+      <div class="cert-item"><div class="cert-icon">AL</div>Diploma in Psychology — Alison Online Learning</div>
+      <div class="cert-item"><div class="cert-icon">AL</div>Leadership in Business Management — Alison Online Learning</div>
+      <div class="cert-item"><div class="cert-icon">RA</div>Diploma in Social Work &amp; Community Development — Rural Aid Kenya</div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- PROJECTS -->
-  <section id="projects">
-    <div class="section-label"><h2>Projects & Highlights</h2></div>
-    <div class="projects-grid">
-      <div class="project-card">
-        <div class="project-icon">📱</div>
-        <h3>LiteLearn App</h3>
-        <p>A lightweight learning solution designed to improve access to education in underserved and low-connectivity areas, addressing digital exclusion among vulnerable youth communities.</p>
-      </div>
-      <div class="project-card">
-        <div class="project-icon">💧</div>
-        <h3>Kibera Water Solution</h3>
-        <p>A tech-driven concept for affordable water access targeting informal settlement vendors in Kibera — addressing one of Nairobi's most persistent urban development challenges.</p>
-      </div>
-      <div class="project-card">
-        <div class="project-icon">🏠</div>
-        <h3>Rehema House Transformation Programme</h3>
-        <p>Integrated livelihood and life-skills training programme for rescued girls — combining vocational skills, psychosocial support, and mentorship for sustainable independence.</p>
-      </div>
-      <div class="project-card">
-        <div class="project-icon">🎤</div>
-        <h3>Fundraising & Spoken Word Advocacy</h3>
-        <p>Mobilised community and donor support through spoken word performance events, amplifying the voices of teen mothers and raising funds for programme continuation.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- EDUCATION -->
-  <section id="education">
-    <div class="section-label"><h2>Education & Certifications</h2></div>
-    <div class="edu-grid">
-      <div>
-        <div class="edu-card" style="margin-bottom:16px">
-          <h3>Diploma in Social Work & Community Development</h3>
-          <div class="inst">Rural Aid Kenya</div>
-        </div>
-        <div class="edu-card" style="margin-bottom:16px">
-          <h3>Data Science Programme</h3>
-          <div class="inst">ALX Africa</div>
-          <div class="note">In Progress</div>
-        </div>
-        <div class="edu-card" style="margin-bottom:16px">
-          <h3>Data Analytics Certification</h3>
-          <div class="inst">ALX Africa</div>
-          <div class="note">SQL · Power BI · Research & Reporting</div>
-        </div>
-        <div class="edu-card">
-          <h3>Diploma in Psychology &amp; Leadership in Business Management</h3>
-          <div class="inst">Alison Online Learning</div>
-        </div>
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <p class="section-label">Education</p>
+    <h2 class="section-title">Academic Background</h2>
+    <div class="edu-grid fade-in">
+      <div class="edu-card featured">
+        <div class="edu-degree">Data Science — Machine Learning, SQL &amp; Power BI</div>
+        <div class="edu-org">ALX Africa</div>
+        <div class="edu-year">2025 – Present &nbsp;·&nbsp; Online</div>
+        <span class="edu-badge">In Progress</span>
       </div>
       <div class="edu-card">
-        <h3 style="margin-bottom:14px">Professional Certifications</h3>
-        <ul class="cert-list">
-          <li>Child Risk Assessment — AVSI International</li>
-          <li>Accountability in Relation to Keeping Donors — IPM</li>
-          <li>Resource Mobilisation — USAID-linked Programme</li>
-          <li>Evaluation in the Helping Process — AVSI International</li>
-          <li>Child Rights & Responsibilities — ANPPCAN Kenya</li>
-          <li>Family Counselling — ANPPCAN Kenya</li>
-          <li>Child Abuse, GBV & Sexual Exploitation — ANPPCAN Kenya</li>
-          <li>Developing a Child Protection Policy — ANPPCAN Kenya</li>
-          <li>Peer Education: Drug & Substance Abuse — ANPPCAN Kenya</li>
-          <li>Nutrition Support in HIV Programmes — ANPPCAN Kenya</li>
-        </ul>
+        <div class="edu-degree">Diploma in Psychology</div>
+        <div class="edu-org">Alison Online Learning</div>
+        <div class="edu-year">2023 &nbsp;·&nbsp; Online</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-degree">Diploma in Leadership &amp; Business Management</div>
+        <div class="edu-org">Alison Online Learning</div>
+        <div class="edu-year">2020 &nbsp;·&nbsp; Online</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-degree">Diploma in Social Work &amp; Community Development</div>
+        <div class="edu-org">Rural Aid Kenya</div>
+        <div class="edu-year">Completed &nbsp;·&nbsp; Nairobi, Kenya</div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-</div>
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <p class="section-label">Get In Touch</p>
+    <h2 class="section-title">Let's work together</h2>
+    <div class="contact-grid fade-in">
+      <div class="contact-text">
+        <p>I am actively seeking <strong style="color:white">MEAL Officer, Programme Officer, or Programme Coordinator</strong> roles based in Nairobi — open to field, office, and hybrid arrangements.</p>
+        <br>
+        <p>If your organisation needs someone who can sit with a family in an informal settlement in the morning and produce a clean donor report in the afternoon — let's talk.</p>
+        <br>
+        <p style="color:rgba(255,255,255,0.45); font-size:0.85rem">📍 Nairobi, Kenya &nbsp;·&nbsp; Available for immediate start<br>Languages: English &amp; Kiswahili (Fluent) · French (Basic)</p>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:mercykumu10@gmail.com" class="contact-link">
+          <div class="contact-link-icon">✉</div>
+          <div><strong>mercykumu10@gmail.com</strong><small>Email — preferred first contact</small></div>
+        </a>
+        <a href="https://www.linkedin.com/in/mercyokumu-ke" target="_blank" class="contact-link">
+          <div class="contact-link-icon">in</div>
+          <div><strong>linkedin.com/in/mercyokumu-ke</strong><small>LinkedIn Profile</small></div>
+        </a>
+        <a href="tel:+254736854103" class="contact-link">
+          <div class="contact-link-icon">☎</div>
+          <div><strong>+254 736 854 103</strong><small>Phone / WhatsApp</small></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
-<!-- FOOTER -->
 <footer>
-  <p style="margin-bottom:8px; font-size:1rem; color:rgba(255,255,255,0.85); font-weight:600;">Mercy Okumu</p>
-  <p>Nairobi, Kenya &nbsp;·&nbsp; <a href="mailto:mercykumu10@gmail.com">mercykumu10@gmail.com</a> &nbsp;·&nbsp; <a href="https://linkedin.com/in/mercy-okumu-782bb937" target="_blank">LinkedIn</a></p>
-  <p style="margin-top:12px; font-size:0.75rem; opacity:0.45;">© 2026 Mercy Okumu · All rights reserved</p>
+  <p>© 2025 Mercy Okumu · Nairobi, Kenya · Built with purpose &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/mercyokumu-ke">LinkedIn</a></p>
 </footer>
 
 <script>
-  // Scroll reveal
-  const observer = new IntersectionObserver(entries => {
+  const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('section').forEach(s => observer.observe(s));
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 </script>
 
 </body>
